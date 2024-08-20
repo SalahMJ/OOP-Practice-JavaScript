@@ -43,7 +43,14 @@ class Book extends Entity {
     get publishedDate() {
         return this._publishedDate;
     }
+
+    getInfo(){
+        console.log(`This is a Book Titled : ${this._title} with publishment date : ${this._publishedDate}`)
+    }
 }       
+
+const book = new Book(1, "Harry Potter 💀💀", 1, 1, 1, 255, new Date(1951, 5, 1));
+book.getInfo();
 
 class Author extends Entity {
     constructor(id, firstName, lastName) {
@@ -116,6 +123,7 @@ class Loan extends Entity {
     get librarianId() {
         return this._librarianId;
     }
+
 }
 
 class Genre extends Entity {
@@ -195,7 +203,8 @@ function printEntityDetails(entity) {
     }
 }
 
-const book = new Book(1, "Foundation", 1, 1, 1, 255, new Date(1951, 5, 1));
+
+
 const author = new Author(1, "Isaac", "Asimov");
 const member = new Member(1, "John", "Doe", new Date(2023, 0, 15));
 const loan = new Loan(1, 1, 1, new Date(2024, 11, 1), new Date(2024, 11, 15), 0.00, 1);
@@ -248,8 +257,6 @@ try {
     const myBook = new Book1();
     implementsInterface(myBook, BookInterface);
     console.log("Book1 class implements Book Interface");
-    console.log("----------------------------------------------------------------------------------------")
 } catch (error) {
     console.error(error.message);
-    console.log("----------------------------------------------------------------------------------------")
 }
